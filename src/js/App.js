@@ -10,7 +10,7 @@ const RIGHT_HAND = "jkl;uiopm,./nhy"
 const LETTERS_UPPER = LETTERS_LOWER.toUpperCase();
 const DIGITS = "0123456789";
 const PUNCTUATION = "`~!@#$%^&*()_+-=[]{};':\",./<>?";
-const wordLessons = [6,12,18,3000,3001,3002,3003,3004]
+const wordLessons = [6,12,18,34,3000,3001,3002,3003,3004]
 const LESSONS = new Map([
   //Lessons
   ["Lesson 0", ["xcghasdjlcgysjlcgsjcygsljdcsdlyfgasdlycgslycgsdycs", " "]],
@@ -52,7 +52,7 @@ const LESSONS = new Map([
   ["Lesson 36", ["3 8", "33 88", "38 38 83 83"]],
   ["Lesson 37", ["2 9", "22 99", "29 29 92 92"]],
   ["Lesson 38", ["1 0", "11 00", "10 10 01 01"]],
-  ["Lesson 39", ["5 6", "55 66", "56 56 65 65"]]
+  ["Lesson 39", ["5 6", "55 66", "56 56 65 65"]],
   ["Lesson 40", ["2131 23728 98 32 123 834 03824 49 0394 83 578 3 75 3477 74 3 783 2138 1988 1984 82 3025678419"]],
   
   //Practice
@@ -351,7 +351,7 @@ class TypingPractice {
       }
       tempSpeaker = characterReplace(tempSpeaker);
     }
-    initialMessage = initialMessage + "   " + tempSpeaker;
+    initialMessage = initialMessage + " first word is " + tempSpeaker;
     this.given = words.join(" ");
     this.typed = "";
   }
