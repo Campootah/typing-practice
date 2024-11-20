@@ -936,3 +936,4 @@ function characterReplace(string){
 function getWords(text){
   wordStorage += "  " + text;
 }
+
