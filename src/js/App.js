@@ -130,7 +130,8 @@ var rightWordList = [
 ];
 let startDate;
 let wordStorage = "";
-let initialMessage = "hello";
+let initialMessage = "";
+let initialWord = "";
 
 
 class TypingPractice {
@@ -216,7 +217,7 @@ class TypingPractice {
         if(this.typed.length == 0){
           //TEXT TO SPEECH
           if(wordLessons.indexOf(lessonNum)>0){
-            getWords(this.given.split(" ")[0])
+            getWords("next word is " + this.given.split(" ")[0])
           }
           else{
             let tempWord = this.given.split(" ")[0].split("")
@@ -227,7 +228,7 @@ class TypingPractice {
                 tempSpeaker+= " ";
               }
             }
-            getWords(characterReplace(tempSpeaker));
+            getWords("next word is " + characterReplace(tempSpeaker));
           }
         }
       } else if(e.keyCode == 32 && lessonCompleted && lessonNum<1000){
@@ -260,7 +261,13 @@ class TypingPractice {
       }
       else{
         lessonStart = true;
-        startUpSpeech(initialMessage);
+        if(lessonPhase == 0){
+        startUpSpeech(initialMessage + " " + initialWord);
+        }
+        else{
+          startUpSpeech(initialWord);
+        }
+
       }
     });
 
@@ -351,7 +358,7 @@ class TypingPractice {
       }
       tempSpeaker = characterReplace(tempSpeaker);
     }
-    initialMessage = initialMessage + " first word is " + tempSpeaker;
+    initialWord = " first word is " + tempSpeaker;
     this.given = words.join(" ");
     this.typed = "";
   }
@@ -565,11 +572,11 @@ class TypingPractice {
       }
       if(i == totalTyped.length-1 && totalGiven[i] != totalTyped[i]){
         //text to speech
-        wronger += "Wrong"
+        wronger += "  Wrong"
       }
       if(lessonNum < 1000){
         if (corrects == LESSONS.get(`Lesson ${lessonNum}`)[lessonPhase].length) {
-          getWords("nice!")
+          getWords("  next phase")
           this.nextPhase();
         }
       }
@@ -579,15 +586,14 @@ class TypingPractice {
         let accuracy = corrects/totalTyped.length
         let wpm = Math.floor((wordCount*accuracy)/(finalDate/60000))
         //SAY WPM AND ACCURACY
-        getWords(wpm);
-        getWords(accuracy*100 + "%");
+        getWords(" your words per minute is " + wpm + "   your accuracy is  "+ accuracy*100 + "%");
         //exit practice
         this.nextPhase();
       }
     });
     if(corrects!=totalTyped.length && lessonNum < 1000 && this.typed.length>1){
       //text to speech
-      wronger += "you still have a mistake!"
+      wronger += "   you still have a mistake!"
     }
     if(wronger!= ""){
       getWords(wronger);
@@ -606,8 +612,8 @@ class TypingPractice {
     if(totalGiven[totalTyped.length] == " "){
       //TEXT TO SPEECH THE WORD
       if(wordLessons.indexOf(lessonNum)>0){
-        getWords(wordArray[totalTyped.length+1])
-        getWords(wordArray[totalTyped.length+1]);
+        getWords("next word is " +  wordArray[totalTyped.length+1]);
+
       }
       else{
         let tempWord = wordArray[totalTyped.length+1].split("")
@@ -618,7 +624,7 @@ class TypingPractice {
             tempSpeaker+= " ";
           }
         }
-        getWords(characterReplace(tempSpeaker));
+        getWords("next word is " + characterReplace(tempSpeaker));
       }
     }
     
@@ -688,6 +694,7 @@ class TypingPractice {
         this._resetCells();
         this._initBuffers();
         this.render();
+        lessonStart = false;
       }
     }
     else if(lessonNum>=1000){
@@ -888,14 +895,12 @@ const keys = ['`', '1', '2', '3', '4', '5','6','7', '8', '9',  '0', '-', '=', 'B
 var soundBase = ['Grave', 'One', 'Two', 'Three', 'Four', 'Five','Six','Seven', 'Eight', 'Nine',  'Zero', 'Hyphen', 'Equal', 'Backspace', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'Open Bracket', 'Close Bracket', 'Pipe', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'Semicolon', "Single Quote", 'Double  Quote', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'Comma', 'Dot', 'Slash', 'Asterisk', 'Addition', 'Exclamation', 'At', 'Pound', 'Dollar Sign', 'Percent', 'Carat', 'And', 'Left Bracket', 'Right Bracket', 'Underscore', 'Open Brace', 'Close Brace', 'Backslash', 'Colon', 'Less Than', 'Greater Than', 'Question Mark', 'Tilde', 'Spacebar', 'capital Q', 'capital  W', 'capital  E', 'capital  R', 'capital  T', 'capital  Y', 'capital  U','capital  I','capital  O', 'capital  P', 'capital  A', 'capital  S', 'capital  D', 'capital  F', 'capital  G', 'capital  H', 'capital  J', 'capital  K', 'capital  L', 'capital  Z', 'capital  X', 'capital  C', 'capital  V', 'capital  B', 'capital  N', 'capital  M'];
 const TypedInput = document.getElementById('typedIn')
 localStorage.setItem('soundBase', soundBase);
-alert('SoundBase saved!');
 localStorage.setItem('Keys', keys);
-alert('Keys saved!');
 if ('speechSynthesis' in window) {
     TypedInput.addEventListener('keydown', e =>{
-      const speech = new SpeechSynthesisUtterance(soundBase[keys.indexOf(e.key)]+ "    " + wordStorage);
+      const speech = new SpeechSynthesisUtterance(soundBase[keys.indexOf(e.key)]+ " " + wordStorage);
       wordStorage = "";
-      speech.rate = 1.2
+      speech.rate = 1.4
       if (soundBase[keys.indexOf(e.key)]!='undefined'){
         if (window.speechSynthesis.speaking) {
           window.speechSynthesis.cancel();
@@ -914,7 +919,7 @@ if ('speechSynthesis' in window) {
 
 function startUpSpeech(text){
   const speech = text;
-  wordStorage = speech;
+  wordStorage += speech;
 }
 
 function characterReplace(string){
@@ -929,5 +934,5 @@ function characterReplace(string){
 }
 
 function getWords(text){
-  wordStorage = text;
+  wordStorage += "  " + text;
 }
