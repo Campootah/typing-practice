@@ -1115,15 +1115,17 @@ recognition.addEventListener('result', (e) => {
     p.innerText = text;
 
     if (e.results[0].isFinal){
+      if (lessonNum < 1000){
         if (text.includes('back') || text.includes('lessons')){
           window.location = "../html/lessons.html";
         }
-        if (text.includes('home') || text.includes('menu')){
-          window.location = "../index.html";
-        }
-        if (text.includes('help')){
-          alert("speaking");
-        }
+      }
+      else if (lessonNum > 1001 && lessonNum != 4000){
+        window.location = "../html/practice.html";
+      }
+      if (text.includes('home') || text.includes('menu')){
+        window.location = "../index.html";
+      }
     }
 });
 
