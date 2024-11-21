@@ -69,7 +69,9 @@ const LESSONS = new Map([
   ["lesson 3001", ["home words"]],
   ["lesson 3002", ["left words"]], 
   ["lesson 3003", ["right words"]], 
-  ["lesson 3004", ["All words"]] 
+  ["lesson 3004", ["All words"]], 
+
+  ["lesson 4000", ["All words"]]
  
 ])
 var lessonNum = parseInt(localStorage.getItem("lessonNumber"));
@@ -132,6 +134,86 @@ let startDate;
 let wordStorage = "";
 let initialMessage = "";
 let initialWord = "";
+
+
+// timer for speed typing
+// saves the number of minutes selected for the timer
+function saveNumMins(mins){
+  // saving to sessionStorage (temporary)
+  sessionStorage.setItem('minutes', mins);
+}
+// gets the number of minutes selected for the timer
+function getNumMins(){
+  return sessionStorage.getItem('minutes');
+}
+
+// creates a timer according to the amount of time selected in timed tests page
+function createTimer(){
+  // starts at 60 secs
+  var seconds = 60;
+  var minutes = getNumMins();
+
+  // every 1 sec
+  function tick(){
+    // doesn't work for some reason
+      if(seconds <= 0 && current_mins <= 0){
+        return;
+      }
+      let counter = document.getElementById('timer');
+      // ex. 4 mins --> 3 min 59 secs
+      var current_mins = minutes - 1;
+      seconds--;
+
+      // updates the HTML displaying timer
+      // makes sure that 1 sec is displayed as 0:01 instead of 0:1
+      if(seconds < 10){
+        counter.innerHTML = current_mins.toString() + ":0" + seconds.toString();
+      }
+      else{
+          counter.innerHTML = current_mins.toString() + ":" + seconds.toString();
+      }
+      
+      // recursive until time runs out
+      if(seconds >= 0){
+          setTimeout(tick, 1000);
+      }
+      else{
+          if(current_mins >= 1){
+            saveNumMins(current_mins);
+            createTimer();
+          }
+      }
+  }
+  tick();
+}
+
+if(lessonNum == 4000){
+  document.addEventListener('DOMContentLoaded', (event) => {
+    // Timer button 
+    const button = document.createElement('button'); 
+    button.className = 'timer_btn'; 
+    button.textContent = 'Start Timer'; 
+    button.onclick = createTimer; 
+    // Timer
+    const timerDiv = document.createElement('div'); 
+    const timerHeader = document.createElement('h3');
+    timerHeader.id = 'timer';
+    timerHeader.style.textAlign = 'center';
+    
+    // Find the element after the navbar 
+    const h3 = document.querySelector('h3'); 
+    const firstElementAfterH3 = h3.nextElementSibling;
+
+    timerDiv.appendChild(timerHeader);
+    // Insert the button and timer after the navbar 
+    h3.parentNode.insertBefore(button, firstElementAfterH3); 
+    button.parentNode.insertBefore(timerDiv, button.nextSibling);
+
+    // Remove the lesson number from localStorage so that the timer doesn't appear in other places
+    localStorage.removeItem("lessonNumber");
+  })
+}
+
 
 
 class TypingPractice {

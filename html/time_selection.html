@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../src/css/general_layout.css">
+    <link rel="stylesheet" href="../src/css/navbar.css">
+    <!-- Main.js -->
+    <script src="../src/js/main.js" defer></script>
+     <script src="../src/js/index.js"></script>
+     <script src="../src/js/App.js"></script>
+    <!-- Page title -->
+    <title>Timed Tests - Bat Type</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <!-- Home (main menu) -->
+            <li class="active">
+                <a href="../index.html" id="main menu" alt="home icon"><i class="material-icons" id="homeIcon" style="text-align: left; font-size: 40px; color: #FFFFFF;">home</i></a>
+            </li>
+            <!-- Settings -->
+            <li>
+                <a href="#settings" id="settings" alt="settings icon"><i class="material-icons" id="settingsIcon" style="text-align: left; font-size: 40px; color: #FFFFFF">settings</i></a>
+            </li>
+            <!-- TTS (when clicked on, TTS turns off and icon changes to mute symbol)-->
+            <li>
+                <i class="material-icons" id="text to speech icon" alt="text to speech icon" style="text-align: left; font-size: 40px; color: #FFFFFF" onclick="muteTTS()">volume_up</i>
+            </li>
+            <!-- Account (dropdown contains logout button)-->
+            <div class="topnav-right">
+                <li>
+                    <a href="#"><i class="material-icons" id="user icon" alt="user icon" style="text-align: right; font-size: 40px; color: #FFFFFF;">account_circle</i><i class="material-icons" style="text-align: right; font-size: 40px; color: #FFFFFF;">arrow_drop_down</i></a>
+                    <ul class="dropdown">
+                        <li><a href="../src/php/myaccount.php" id="account" alt="account">My Account</a></li>
+                        <li><a href="../login.html" id="logout" alt="logout">Logout</a></li>
+                    </ul>
+                </li>
+            </div>
+        </ul>
+    </nav>
+
+    <!-- Back icon -->
+    <a href="../index.html"><i class="material-icons" alt="back to speed typing" style="text-align: left; font-size: 2.5rem; font-weight: bolder; color: #16325B; margin-top: 5rem; margin-left: 5rem; margin-bottom: 0rem; padding: 0rem;">arrow_back_ios</i></a>
+
+    <!-- Title -->
+     <div class="container">
+        <h1 style="margin-top: -3rem;">Timed Tests</h1>
+        <h3>The following timed tests help you improve your typing speed and accuracy. Choose from either a 
+            one minute, three minute, or five minute test.
+        </h3>
+     </div>
+
+     <div class="three-by-one">
+        <button class="main_menu_btns" alt="1 minute timed test" onclick="redirectWebpage(4000); saveNumMins(1);">1:00 min</button>
+        <button class="main_menu_btns" alt="3 minute timed test" onclick="redirectWebpage(4000); saveNumMins(3);">3:00 min</button>
+        <button class="main_menu_btns" alt="5 minute timed test" onclick="redirectWebpage(4000); saveNumMins(5);">5:00 min</button>
+     </div>
+
+     <!-- Footer -->
+     <div class="footer">
+        <hr>
+        <h6>Bat Type</h6>
+        <p>Copyright © 2024 Group 2 (the better group)</p>
+    </div>
+</body>

@@ -51,6 +51,8 @@ h3 {
   font-weight: 400;
   color: #000000;
   margin-top: 2.1rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 h6 {
   text-align: center;
@@ -75,11 +77,25 @@ p {
   gap: 1.5rem;
   margin: 1.35rem 1.35rem;
 }
+/* Three by one button container */
+.three-by-one {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.35rem;
+  margin: 1.35rem 1.35rem;
+}
 /* Button container for lessons page (5 x 2)*/
 .lessons_btn_container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   gap: 1.5rem;
+  margin: 1.35rem 1.35rem;
+}
+/* Button container for practice page (2 columns)*/
+.practice_btn_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.8rem;
   margin: 1.35rem 1.35rem;
 }
 
@@ -99,6 +115,29 @@ p {
   transition-duration: 0.4s;
 }
 .main_menu_btns:hover {
+  cursor: pointer;
+  background-color: #FFFFFF;
+  color: #16325B;
+}
+
+.timer_btn {
+  background-color: #16325B;
+  color: #FFFFFF;
+  border-width: 0.1875rem;
+  border-color: #16325B;
+  border-radius: 0.5rem;
+  padding: 2rem 4rem;
+  text-align: center;
+  text-decoration: none;
+  font-family: "Geist Mono", monospace;
+  font-size: 2rem;
+  font-weight: 500;
+  transition-duration: 0.4s;
+  display: block;
+  margin: auto;
+  margin-top: 2rem;
+}
+.timer_btn:hover {
   cursor: pointer;
   background-color: #FFFFFF;
   color: #16325B;
