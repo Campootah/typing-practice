@@ -147,7 +147,7 @@ function getNumMins(){
   return sessionStorage.getItem('minutes');
 }
 let button;
-var seconds = 10;
+var seconds = 60;
 var minutes = getNumMins();
 var current_mins;
 // creates a timer according to the amount of time selected in timed tests page
