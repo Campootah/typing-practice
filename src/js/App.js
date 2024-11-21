@@ -26,11 +26,11 @@ const LESSONS = new Map([
   ["Lesson 10", ["q p", "qq pp", "qp qp pq pq"]],
   ["Lesson 11", ["t y", "tt yy", "ty ty yt yt"]],
   ["Lesson 12", ["poetry wipeout tie pity your quite equip trope euro twirp our quote write wrote tire power trio pie you route"]],
-  ["Lesson 13", ["r u", "rr uu", "ru ru ur ur"]],
-  ["Lesson 14", ["e i", "ee ii", "ei ei ie ie"]],
-  ["Lesson 15", ["w o", "ww oo", "wo wo ow ow"]],
-  ["Lesson 16", ["q p", "qq pp", "qp qp pq pq"]],
-  ["Lesson 17", ["t y", "tt yy", "ty ty yt yt"]],
+  ["Lesson 13", ["v m", "vv mm", "vm vm mv mv"]],
+  ["Lesson 14", ["c ,", "cc ,,", "c, c, ,c ,c"]],
+  ["Lesson 15", ["x .", "xx ..", "x. x. .x .x"]],
+  ["Lesson 16", ["z /", "zz //", "z/ z/ /z /z"]],
+  ["Lesson 17", ["b n", "bb nn", "bn bn nb nb"]],
   ["Lesson 18", ["cabin banjo bacon venom vocation combine men mankind ban can vaccine bin zen maven bum zebra mimic cabal balcony bazooka nexus"]],
   ["Lesson 19", ["F J", "FF JJ", "FJ FJ JF JF"]],
   ["Lesson 20", ["D K", "DD KK", "DK DK KD KD"]],
@@ -47,13 +47,13 @@ const LESSONS = new Map([
   ["Lesson 31", ["X .", "XX ..", "X. X. .X .X"]],
   ["Lesson 32", ["Z /", "ZZ //", "Z/ Z/ /Z /Z"]],
   ["Lesson 33", ["B N", "BB NN", "BN BN NB NB"]],
-  ["Lesson 34", ["Lisbon, the Capital City of Portugal, is Home to the Longest Bridge in Europe. The Vasco da Gama Bridge in Lisbon is Seventeen Kilometers or ten and a Half Miles Long."]],
+  ["Lesson 34", ["Lisbon, The Capital City Of Portugal, Is Home To The Longest Bridge In Europe. The Vasco Da Gama Bridge In Lisbon Is Seventeen Kilometers Or Ten And A Half Miles Long."]],
   ["Lesson 35", ["4 7", "44 77", "47 47 74 74"]],
   ["Lesson 36", ["3 8", "33 88", "38 38 83 83"]],
   ["Lesson 37", ["2 9", "22 99", "29 29 92 92"]],
   ["Lesson 38", ["1 0", "11 00", "10 10 01 01"]],
   ["Lesson 39", ["5 6", "55 66", "56 56 65 65"]],
-  ["Lesson 40", ["2131 23728 98 32 123 834 03824 49 0394 83 578 3 75 3477 74 3 783 2138 1988 1984 82 3025678419"]],
+  ["Lesson 40", ["2131 237068 98 32 123 834 03824 49 0394 83 576 3 75 3477 74 3 783 2138 1988 1984 82 3025678419"]],
   
   //Practice
   ["lesson 1000", ["dad"]],
@@ -421,11 +421,92 @@ class TypingPractice {
     
     
     switch(lessonNum){
-      case 1000: case 2000: case 2001: case 2002: case 2003: case 2004: case 2005: case 2006: case 2007: case 2008:
-        initialMessage = "In between sets of 5 letters is a space"
+      case 1:
+        initialMessage = "The backspace key is the bigger key that is top right of the keyboard. The big long bar at the bottom middle of the keyboard is the space bar. Place your index fingers on the two keys in the middle of the keyboard with bumps on them. The key with the bump on the left is F, and on the right is J. Use only your index fingers for these keys.";
         break;
-      case 3000: case 3001: case 3002: case 3003: case 3004: case 4000:
-        initialMessage = "In between words is a space";
+      case 2:
+        initialMessage = "The key directly left of F is the D key. The key directly right of J is the K key. Use only your middle fingers for these keys.";
+        break;
+      case 3:
+        initialMessage = "The key directly left of D is the S key. The key directly right of K is the L key. Use only your ring fingers for these keys.";
+        break;
+      case 4:
+        initialMessage = "The key directly left of S is the A key. The key directly right of L is the ; key. Use only your pinky fingers for these keys.";
+        break;
+      case 5:
+        initialMessage = "The key directly right of F is the G key. The key directly left of J is the H key. Use only your index fingers for these keys.";
+        break;
+      case 6:
+        initialMessage = "Type what you hear and put a space in between every word.";
+        break;
+      case 7:
+        initialMessage = "The left key above F is the R key. The left key above J is the U key. Use only your index fingers for these keys.";
+        break;
+      case 8:
+        initialMessage = "The left key above D is the E key. The left key above K is the I key. Use only your middle fingers for these keys.";
+        break;
+      case 9:
+        initialMessage = "The left key above S is the W key. The left key above L is the O key. Use only your ring fingers for these keys.";
+        break;
+      case 10:
+        initialMessage = "The left key above A is the Q key. The left key above ; is the P key. Use only your pinky fingers for these keys.";
+        break;
+      case 11:
+        initialMessage = "The key directly right of R is the T key. The key directly left of U is the Y key. Use only your index fingers for these keys";
+        break;
+      case 12:
+        initialMessage = "Type what you hear and put a space in between every word.";
+        break;
+      case 13:
+        initialMessage = "The right key below F is the V key. The right key below J is the M key. Use onnly your index fingers for these keys.";
+        break;
+      case 14:
+        initialMessage = "The key directly to the left of V is the C key. The key directly to the right of M is the , key. Use only your middle fingers for these keys.";
+        break;
+      case 15:
+        initialMessage = "The key directly to the left of C is the X key. The key directly to the right of , is the . key. Use only your ring fingers for these keys.";
+        break;
+      case 16:
+        initialMessage = "The key directly to the left of X is the Z key. The key directly to the right of . is the / key. Use only your pinky fingers for these keys.";
+        break;
+      case 17:
+        initialMessage = "The key directly to the right of V is the B key. The key directly to the left of M is the N key. Use only your index fingers for these keys.";
+        break;
+      case 18:
+        initialMessage = "Type what you hear and put a space in between every word.";
+        break;
+      case 19:
+        initialMessage = "There are two shift keys both on the bottom row. One at the very left and one at the very right of the keyboard. If you need to make a character capital, hold down the shift key in the opposite hand with your pinky. For example, hold down right shift when typing uppercase F and left shift when typing uppercase J.";
+        break;
+      case 20: case 21: case 22: case 23: case 24: case 25: case 26: case 27: case 28: case 29: case 30: case 31: case 32: case 33:
+        initialMessage = "All letters are capital but do not use caps lock.";
+        break;
+      case 34:
+        initialMessage = "The first letter in every word is capitalized. The rest of the word will be in lower case. Put a space between each word.";
+        break;
+      case 35:
+        initialMessage = "The key directly above R is the 4 key. The key directly above U is the 7 key. Use only your index fingers for these keys.";
+        break;
+      case 36:
+        initialMessage = "The key directly above E is the 3 key. The key directly above I is the 8 key. Use only your middle fingers for these keys.";
+        break;
+      case 37:
+        initialMessage = "The key directly above W is the 2 key. The key directly above O is the 9 key. Use only your ring fingers for these keys.";
+        break;
+      case 38:
+        initialMessage = "The key directly above Q is the 1 key. The key directly above P is the 0 key. Use only your pinky fingers for these keys.";
+        break;
+      case 39:
+        initialMessage = "The key directly above T is the 5 key. The key directly above Y is the 6 key. Use only your index fingers for these keys.";
+        break;
+      case 40:
+        initialMessage = "A lot of numbers.";
+        break;
+      case 1000: case 2000: case 2001: case 2002: case 2003: case 2004: case 2005: case 2006: case 2007: case 2008:
+        initialMessage = "There is a space after every five characters."
+        break;
+      case 3000: case 3001: case 3002: case 3003: case 3004:
+        initialMessage = "There is a space in between each word.";
         break;
     }
     //SAYS THINGS THAT EXPLAIN LESSON, FOR EXAMPLE: F AND J ARE THE THINGS WITH THE UNDERLINE THINGS
@@ -1036,4 +1117,40 @@ function characterReplace(string){
 function getWords(text){
   wordStorage += "  " + text;
 }
+
+// ----------------SPEECH RECOGNITION-------------------------
+
+window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+const recognition = new window.SpeechRecognition();
+recognition.interimResults = true; // gives live display - false would wait till we stop talking then display
+
+let p = document.createElement('p');
+
+recognition.addEventListener('result', (e) => {
+    const text = Array.from(e.results).map(result => result[0]).map(result => result.transcript).join('');
+
+    p.innerText = text;
+
+    if (e.results[0].isFinal){
+      if (lessonNum < 1000){
+        if (text.includes('back') || text.includes('lessons')){
+          window.location = "../html/lessons.html";
+        }
+      }
+      else if (lessonNum > 1001 && lessonNum != 4000){
+        window.location = "../html/practice.html";
+      }
+      if (text.includes('home') || text.includes('menu')){
+        window.location = "../index.html";
+      }
+    }
+});
+
+recognition.addEventListener('end', () => {
+    recognition.start();
+})
+
+recognition.start();
+
 
