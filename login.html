@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF -8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv='cache-control' content='no-cache'>
+    <meta http-equiv='expires' content='0'>
+    <meta http-equiv='pragma' content='no-cache'>
+
+    <!-- Google icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="/src/js/index.js"></script>
+
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="src/css/login-page.css">
+    <link rel="stylesheet" href="/src/css/general_layout.css">
+    <link rel="stylesheet" href="/src/css/navbar.css">
+
+    <!-- ===== BOX ICONS ===== -->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>Login - Bat Type</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <!-- Settings -->
+            <li>
+                <a href="#settings"><i class="material-icons" id="settingsIcon" style="text-align: left; font-size: 40px; color: #FFFFFF">settings</i></a>
+            </li>
+            <!-- TTS (when clicked on, TTS turns off and icon changes to mute symbol)-->
+            <li>
+                <i class="material-icons" id="TTSIcon" style="text-align: left; font-size: 40px; color: #FFFFFF" onclick="muteTTS()">volume_up</i>
+            </li>
+            <!-- Account (dropdown contains logout button)-->
+            <div class="topnav-right">
+            <li>
+                <a href="#"><i class="material-icons" id="userIcon" style="text-align: right; font-size: 40px; color: #FFFFFF;">account_circle</i><i class="material-icons" style="text-align: right; font-size: 40px; color: #FFFFFF;">arrow_drop_down</i></a>
+                <ul class="dropdown">
+                    <li><a href="./src/php/myaccount.php">My Account</a></li>
+                    <li><a href="login.html">Logout</a></li>
+                </ul>
+            </li>
+            </div>
+        </ul>
+    </nav>
+
+    <div class="container">
+
+        <div class="shape1"></div>
+        <div class="shape2"></div>
+
+        <div class="form">
+            <!-- Welcome -->
+            <form action="./src/php/login.php" class="form__content" id="login" method="post">
+                <h1 style="margin-top: -7rem; margin-bottom: 2rem;">Welcome</h1>
+
+                <!-- Username -->
+                <div class="form__div form__div-one">
+                    <div class="form__icon">
+                        <i class='bx bx-user-circle'></i>
+                    </div>
+
+                    <div class="form__div-input">
+                        <label for="" class="form__label">Username</label>
+                        <input id="loginUsername" type="text" class="form__input" name="username">
+                    </div>
+                </div>
+
+                <!-- Password -->
+                <div class="form__div">
+                    <div class="form__icon">
+                        <i class='bx bx-lock'></i>
+                    </div>
+
+                    <div class="form__div-input">
+                        <label for="" class="form__label">Password</label>
+                        <input id="loginPassword" type="password" class="form__input" name="password">
+                    </div>
+                </div>
+
+                <!-- Submit button -->
+                <input id="submitLogin" type="submit" class="form__button" value="Login">
+
+                <h3 style="margin-top: 0rem; font-size: 1rem;"><a href="#signup" class="form__link" id="linkSignup">Don't have an account? Sign up</a></h3>
+
+            </form>
+
+            <form action="./src/php/signup.php" class="form__content form--hidden" id="signup" method="post">
+
+                <h1 style="margin-top: 3rem; margin-bottom: 2rem; font-size: 4.7rem;">Sign Up</h1>
+
+                <div class="form__div form__div-one">
+                    <div class="form__icon">
+                        <i class='bx bx-user-circle'></i>
+                    </div>
+
+                    <div class="form__div-input">
+                        <label for="" class="form__label">Username</label>
+                        <input id="signUpUsername" type="text" class="form__input" name="username">
+                    </div>
+                </div>
+
+                <div class="form__div form__div-one">
+                    <div class="form__icon">
+                        <i class='bx bx-mail-send'></i>
+                    </div>
+
+                    <div class="form__div-input">
+                        <label for="" class="form__label">Email</label>
+                        <input id="signUpEmail" type="email" class="form__input" name="email">
+                    </div>
+                </div>
+
+                <div class="form__div">
+                    <div class="form__icon">
+                        <i class='bx bx-lock'></i>
+                    </div>
+
+                    <div class="form__div-input">
+                        <label for="" class="form__label">Password</label>
+                        <input id="signUpPassword" type="text" class="form__input" name="password">
+                    </div>
+                </div>
+
+                <input id="submitSignup" type="submit" class="form__button" value="Sign Up">
+
+                <h3 style="margin-top: 0rem; font-size: 1rem;"><a href="#login" class="form__link" id="linkLogin">Already have an account? Log in</a></h3>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- ===== JS ===== -->
+    <script src="src/js/script.js"></script>
+</body>
+</html>
