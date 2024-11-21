@@ -15,8 +15,6 @@ recognition.addEventListener('result', (e) => {
     p.innerText = text;
 
     if (e.results[0].isFinal) {
-        alert(text);
-
         switch (true) {
             case text.includes('top words'):
                 redirectWebpage(3000);
@@ -33,7 +31,6 @@ recognition.addEventListener('result', (e) => {
             case text.includes('all words'):
                 redirectWebpage(3004);
                 break;
-
             case text.includes('one'):
                 redirectWebpage(1);
                 break;
