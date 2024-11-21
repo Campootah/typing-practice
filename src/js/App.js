@@ -10,7 +10,7 @@ const RIGHT_HAND = "jkl;uiopm,./nhy"
 const LETTERS_UPPER = LETTERS_LOWER.toUpperCase();
 const DIGITS = "0123456789";
 const PUNCTUATION = "`~!@#$%^&*()_+-=[]{};':\",./<>?";
-const wordLessons = [6,12,18,34,3000,3001,3002,3003,3004]
+const wordLessons = [6,12,18,34,3000,3001,3002,3003,3004,4000]
 const LESSONS = new Map([
   //Lessons
   ["Lesson 0", ["xcghasdjlcgysjlcgsjcygsljdcsdlyfgasdlycgslycgsdycs", " "]],
@@ -78,7 +78,7 @@ var lessonNum = parseInt(localStorage.getItem("lessonNumber"));
 var lessonPhase = 0;//changes as lesson progresses
 var lessonCompleted = false;
 var lessonStart = false;
-var wordCount = 10;
+var wordCount = 15;
 var wordList = [
   "the", "be", "and", "a", "of", "to", "in", "i", "you", "it", "have", "to", 
   "that", "for", "do", "he", "with", "on", "this", "not", "we", "that", "not", 
@@ -146,22 +146,22 @@ function saveNumMins(mins){
 function getNumMins(){
   return sessionStorage.getItem('minutes');
 }
-
+let button;
+var seconds = 10;
+var minutes = getNumMins();
+var current_mins;
 // creates a timer according to the amount of time selected in timed tests page
 function createTimer(){
+  lessonStart = true;
+  button.style.display = "none";
   // starts at 60 secs
-  var seconds = 60;
-  var minutes = getNumMins();
 
   // every 1 sec
   function tick(){
     // doesn't work for some reason
-      if(seconds <= 0 && current_mins <= 0){
-        return;
-      }
       let counter = document.getElementById('timer');
       // ex. 4 mins --> 3 min 59 secs
-      var current_mins = minutes - 1;
+      current_mins = minutes - 1;
       seconds--;
 
       // updates the HTML displaying timer
@@ -174,7 +174,7 @@ function createTimer(){
       }
       
       // recursive until time runs out
-      if(seconds >= 0){
+      if(seconds > 0){
           setTimeout(tick, 1000);
       }
       else{
@@ -188,9 +188,10 @@ function createTimer(){
 }
 
 if(lessonNum == 4000){
+  wordCount = 10000;
   document.addEventListener('DOMContentLoaded', (event) => {
     // Timer button 
-    const button = document.createElement('button'); 
+    button = document.createElement('button'); 
     button.className = 'timer_btn'; 
     button.textContent = 'Start Timer'; 
     button.onclick = createTimer; 
@@ -199,6 +200,9 @@ if(lessonNum == 4000){
     const timerHeader = document.createElement('h3');
     timerHeader.id = 'timer';
     timerHeader.style.textAlign = 'center';
+    timerHeader.style.fontSize = '3rem';
+    timerHeader.style.fontWeight = '600';
+    timerHeader.style.color = '#16325B';
     
     // Find the element after the navbar 
     const h3 = document.querySelector('h3'); 
@@ -209,8 +213,6 @@ if(lessonNum == 4000){
     h3.parentNode.insertBefore(button, firstElementAfterH3); 
     button.parentNode.insertBefore(timerDiv, button.nextSibling);
 
-    // Remove the lesson number from localStorage so that the timer doesn't appear in other places
-    localStorage.removeItem("lessonNumber");
   })
 }
 
@@ -342,6 +344,9 @@ class TypingPractice {
       e.preventDefault();
       }
       else{
+        if(lessonNum == 4000 && lessonStart == false){
+          createTimer();
+        }
         lessonStart = true;
         if(lessonPhase == 0){
         startUpSpeech(initialMessage + " " + initialWord);
@@ -598,6 +603,7 @@ class TypingPractice {
             case 3002: return middleWordList;
             case 3003: return leftWordList;
             case 3004: return rightWordList;
+            case 4000: return wordList;
           }
 
 
@@ -746,7 +752,7 @@ class TypingPractice {
       else if(lessonNum >= 1000 && totalGiven.length == totalTyped.length && totalTyped.length-1 == i){
         let endDate = new Date();
         let finalDate = endDate - startDate 
-        let accuracy = corrects/totalTyped.length
+        let accuracy = Math.floor(corrects/totalTyped.length)
         let wpm = Math.floor((wordCount*accuracy)/(finalDate/60000))
         //SAY WPM AND ACCURACY
         getWords(" your words per minute is " + wpm + "   your accuracy is  "+ accuracy*100 + "%");
@@ -754,6 +760,18 @@ class TypingPractice {
         this.nextPhase();
       }
     });
+    if(lessonNum == 4000 && seconds <=0 && current_mins <= 0){
+      let endDate = new Date();
+        let finalDate = endDate - startDate 
+        let accuracy = Math.floor(corrects/totalTyped.length)
+        let wpm = Math.floor((corrects)/(finalDate/60000))
+        //SAY WPM AND ACCURACY
+        console.log(" your characters per minute is " + wpm + "   your accuracy is  "+ accuracy*100 + "%");
+       
+        getWords(" your characters per minute is " + wpm + "   your accuracy is  "+ accuracy*100 + "%");
+        //exit practice
+        this.nextPhase();
+    }
     if(corrects!=totalTyped.length && lessonNum < 1000 && this.typed.length>1){
       //text to speech
       wronger += "   you still have a mistake!"
