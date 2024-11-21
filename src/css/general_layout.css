@@ -91,6 +91,13 @@ p {
   gap: 1.5rem;
   margin: 1.35rem 1.35rem;
 }
+/* Button container for practice page (2 columns)*/
+.practice_btn_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.8rem;
+  margin: 1.35rem 1.35rem;
+}
 
 /* This button layout is used for the four buttons on the main menu (tutorial, lessons, practice, and speed typing) */
 .main_menu_btns {
