@@ -9,7 +9,6 @@ recognition.addEventListener('result', (e) => {
     if (e.results[0].isFinal){
         if(text.includes('back')){
             window.location = "../../html/lessons.html";
-            console.log("gonig back");
         }
     }
 });
