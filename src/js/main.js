@@ -33,10 +33,7 @@ recognition.addEventListener('result', (e) => {
         if (text.includes('six')){
             redirectWebpage(6);
         }
-        if (text.includes('back')){
-            window.location = "../index.html";
-        }
-        if (text.includes('home')){
+        if (text.includes('back') || text.includes('home') || text.includes('menu')){
             window.location = "../index.html";
         }
         if (text.includes('help')){
