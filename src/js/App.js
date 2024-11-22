@@ -582,24 +582,21 @@ class TypingPractice {
         }else{
           switch(lessonNum){
             case 2000: return TOP_ROW;
-            case 2002: return BOTTOM_ROW;
             case 2001: return HOME_ROW;
+            case 2002: return BOTTOM_ROW;
             case 2003: return LEFT_HAND;
             case 2004: return RIGHT_HAND;
             case 2005: return LETTERS_UPPER;
             case 2006: return DIGITS;
             case 2007: return PUNCTUATION;
-            case 3000: return wordList;
-            case 3001: return topWordList;
-            case 3002: return middleWordList;
-            case 3003: return leftWordList;
-            case 3004: return rightWordList;
+            case 3000: return topWordList;
+            case 3001: return homeWordList;
+            case 3002: return leftWordList;
+            case 3003: return rightWordList;
+            case 3004: return wordList;
             case 4000: return wordList;
           }
-
-
         }
-
 
       }else{
          return (LESSONS.get(`Lesson ${lessonNum}`)[lessonPhase]);
