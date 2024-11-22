@@ -136,16 +136,6 @@ let initialMessage = "";
 let initialWord = "";
 
 
-// timer for speed typing
-// saves the number of minutes selected for the timer
-function saveNumMins(mins){
-  // saving to sessionStorage (temporary)
-  sessionStorage.setItem('minutes', mins);
-}
-// gets the number of minutes selected for the timer
-function getNumMins(){
-  return sessionStorage.getItem('minutes');
-}
 let button;
 var seconds = 60;
 var minutes = getNumMins();
@@ -188,8 +178,10 @@ function createTimer(){
 }
 
 if(lessonNum == 4000){
+  
   wordCount = 10000;
   document.addEventListener('DOMContentLoaded', (event) => {
+    console.log("in lessonNum")
     // Timer button 
     button = document.createElement('button'); 
     button.className = 'timer_btn'; 
@@ -505,7 +497,7 @@ class TypingPractice {
       case 1000: case 2000: case 2001: case 2002: case 2003: case 2004: case 2005: case 2006: case 2007: case 2008:
         initialMessage = "There is a space after every five characters."
         break;
-      case 3000: case 3001: case 3002: case 3003: case 3004:
+      case 3000: case 3001: case 3002: case 3003: case 3004: case 4000:
         initialMessage = "There is a space in between each word.";
         break;
     }
