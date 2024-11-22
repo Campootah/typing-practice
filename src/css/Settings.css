@@ -1,0 +1,115 @@
+/* Settings.css */
+.Settings {
+  text-align: center;
+  padding: 20px;
+  max-width: 400px;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-top: 30px;
+}
+
+label input[type="range"] {
+  width: 100%;
+}
+
+.volume-section label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.volume-images {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5px;
+  margin-bottom: 15px;
+}
+
+.volume-icon {
+  width: 20px;
+  height: auto;
+}
+
+.tts-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.tts-button {
+  background-color: rgb(200, 200, 200);
+  color: black;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s;
+}
+
+.tts-button:hover {
+  background-color: #a7a7a7;
+}
+
+.tts-button:active {
+  background-color: #808080;
+  transform: scale(0.95);
+}
+
+.tts-button.active {
+  background-color: #3974ff
+}
+
+.text-size-indicators {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.small-abc {
+  font-size: 12px;
+  color: black;
+}
+
+.big-abc {
+  font-size: 24px;
+  color: black;
+}
+
+.volume-value, .text-size-value {
+  margin-left: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+.reset-button {
+  margin-top: 20px;
+  background-color: #ff2727;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.reset-button:hover {
+  background-color: #cf0000;
+}
