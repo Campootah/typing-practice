@@ -149,7 +149,6 @@ function createTimer(){
 
   // every 1 sec
   function tick(){
-    // doesn't work for some reason
       let counter = document.getElementById('timer');
       // ex. 4 mins --> 3 min 59 secs
       current_mins = minutes - 1;
