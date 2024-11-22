@@ -19,6 +19,9 @@ recognition.addEventListener('result', (e) => {
         if (text.includes('practice')){
             window.location = "html/practice.html";
         }
+        if (text.includes('speed')){
+            window.location = "html/time_selection.html";
+        }
     }
 });
 
